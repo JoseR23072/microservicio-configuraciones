@@ -1,0 +1,70 @@
+server:
+  port: ${GATEWAY_SERVER_PORT:8080}
+
+spring:
+  application:
+    name: msvc-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: 
+              - "https://riverspain-proyecto.web.app"
+            allowedMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS","PATCH"]
+            allowedHeaders: ["*"]
+
+      routes:
+        - id: zonas
+          uri: lb://msvc-zonas
+          predicates:
+            - Path=/riverspain/zonas/**
+        - id: ciudades
+          uri: lb://msvc-ciudades
+          predicates:
+            - Path=/riverspain/ciudad/**
+        - id: voluntarios
+          uri: lb://msvc-voluntarios
+          predicates:
+            - Path=/riverspain/voluntarios/**
+        - id: peces
+          uri: lb://msvc-peces
+          predicates:
+            - Path=/riverspain/peces/**
+        - id: rios
+          uri: lb://msvc-rios
+          predicates:
+            - Path=/riverspain/rios/**
+        - id: batidas
+          uri: lb://msvc-batidas
+          predicates:
+            - Path=/riverspain/batidas/**
+        - id: batida
+          uri: lb://msvc-batidas
+          predicates:
+            - Path=/riverspain/batida/**
+        - id: informes
+          uri: lb://msvc-batidas
+          predicates:
+            - Path=/riverspain/informes/**
+        - id: utilidades
+          uri: lb://msvc-batidas
+          predicates:
+            - Path=/riverspain/utilidades/**
+
+eureka:
+  instance:
+    hostname: ${GATEWAY_EUREKA_INSTANCE_HOSTNAME:localhost}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs

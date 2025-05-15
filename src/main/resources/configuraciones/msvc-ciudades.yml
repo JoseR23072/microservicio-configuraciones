@@ -1,0 +1,28 @@
+server:
+  port: ${CIUDADES_SERVER_PORT:8082}
+
+spring:
+  application:
+    name: msvc-ciudades
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${CIUDADES_DB_HOST:localhost}:${CIUDADES_DB_PORT:3306}/${DB_NAME:ciudadesdb}
+    username: ${DB_USER:root}
+    password: ${CIUDADES_DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: ${HIBERNATE_DDL_AUTO:validate}
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+eureka:
+  instance:
+    hostname: ${CIUDADES_EUREKA_INSTANCE_HOSTNAME:localhost}
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka}
+
+springdoc:
+  swagger-ui:
+    path: /docs
+
