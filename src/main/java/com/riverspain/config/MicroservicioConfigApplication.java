@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
 
 @EnableConfigServer
-@SpringBootApplication
+@SpringBootApplication(exclude = {
+    org.springframework.boot.actuate.autoconfigure.metrics.SystemMetricsAutoConfiguration.class
+})
 public class MicroservicioConfigApplication {
 
 	public static void main(String[] args) {
