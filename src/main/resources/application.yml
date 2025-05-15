@@ -25,5 +25,14 @@ management:
   metrics:
     enable:
       all: false
-      
-  metrics.binders.processor.enabled: false
+    binders:
+      processor:
+        enabled: false
+      jvm:
+        enabled: false
+      uptime:
+        enabled: false
+      logback:
+        enabled: false
+
+ 
