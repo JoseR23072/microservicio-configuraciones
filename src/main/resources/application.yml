@@ -14,3 +14,17 @@ spring:
           timeout: ${CONFIG_GIT_TIMEOUT:10}
           clone-on-start: true
 
+management:
+  metrics:
+    enable:
+      all: false
+    binders:
+      processor:
+        enabled: false
+      jvm:
+        enabled: false
+      uptime:
+        enabled: false
+      logback:
+        enabled: false
+
