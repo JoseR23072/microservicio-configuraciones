@@ -21,15 +21,15 @@ management:
       exposure:
         include: health,info
 
-  # metrics:
-  #   enable:
-  #     all: false
-  #   binders:
-  #     processor:
-  #       enabled: false
-  #     jvm:
-  #       enabled: false
-  #     uptime:
-  #       enabled: false
-  #     logback:
-  #       enabled: false
+  metrics:
+    enable:
+      all: false
+    binders:
+      processor:
+        enabled: false
+      jvm:
+        enabled: false
+      uptime:
+        enabled: false
+      logback:
+        enabled: false
