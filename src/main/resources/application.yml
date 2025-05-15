@@ -25,3 +25,5 @@ management:
   metrics:
     enable:
       all: false
+      
+  metrics.binders.processor.enabled: false
