@@ -14,15 +14,6 @@ spring:
 
 management:
   metrics:
-    enable:
-      all: false
     binders:
-      processor:
+      system:
         enabled: false
-      jvm:
-        enabled: false
-      uptime:
-        enabled: false
-      logback:
-        enabled: false
-
