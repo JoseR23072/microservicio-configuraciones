@@ -21,3 +21,8 @@ management:
     binders:
       system:
         enabled: false
+
+
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
