@@ -2,10 +2,6 @@ server:
   port: ${CONFIG_SERVER_PORT:8888}
 
 spring:
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.actuate.autoconfigure.metrics.SystemMetricsAutoConfiguration
-      - org.springframework.boot.actuate.autoconfigure.metrics.MetricsAutoConfiguration
   application:
     name: config-server
   cloud:
@@ -17,14 +13,6 @@ spring:
           default-label: ${CONFIG_GIT_DEFAULT_LABEL:main}
           timeout: ${CONFIG_GIT_TIMEOUT:10}
           clone-on-start: true
-
-management:
-  metrics:
-    binders:
-      system:
-        enabled: false
-
-
 logging:
   level:
     org.springframework.cloud.config: DEBUG
